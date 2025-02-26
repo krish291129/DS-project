@@ -1,0 +1,65 @@
+#include<stdio.h>
+#include <string.h>
+
+#define W 100 // MAX_WORDS
+#define L 50  // MAX_LENGTH
+
+struct Stack{
+	char words[W][L];
+	int top;
+};
+
+int main(){
+	struct Stack s;
+	s.top = -1;
+	int choice,i;
+	char word[L];
+	
+	while(1){
+		printf("1.Add word\n2.Undo\n3.Display\n4.Exit\n");
+		printf("Enter your choice: \n");
+		scanf("%d",&choice);
+		
+		switch(choice){
+			case 1:
+				if(s.top == W - 1){
+					printf("\nStack is full\n");
+				}
+				else{
+					printf("\nEnter Word: \n");
+					scanf("%s",word);
+					s.top++;
+					strcpy(s.words[s.top],word);
+				}
+				break;
+				
+			case 2:
+				if(s.top>=0){
+					printf("\nUndo: Removed %s\n",s.words[s.top]);
+					s.top--;
+				}
+				else{
+					printf("\nNo words to undo!\n");
+				}
+				break;
+				
+			case 3:
+				if(s.top==-1){
+					printf("\nDocument is Empty\n");
+				}
+				else{
+					printf("Current Document: \n");
+					for(i=0;i<=s.top;i++){
+						printf("%s",s.words[i]);
+					}
+					printf("\n");
+				}
+				break;
+			case 4:
+				return 0;
+				
+			default:
+				printf("Invalid Choice! Try again.\n");
+		}
+	}
+}
