@@ -25,15 +25,14 @@ int main() {
                     scanf("%d", &inventory[count].id);
 
                     printf("Enter Item Name: ");
-                    scanf(" %[^\n]", inventory[count].name);  // Accepts multi-word names
-
+                    scanf(" %[^\n]", inventory[count].name);  
                     printf("Enter Item Quantity: ");
                     scanf("%d", &inventory[count].quantity);
 
                     printf("Enter Item Price: ");
                     scanf("%f", &inventory[count].price);
 
-                    count++;  // Increment count after adding an item
+                    count++; 
                     printf("Item has been successfully added!\n");
                 } else {
                     printf("Inventory is full! Cannot add more items.\n");
@@ -93,7 +92,7 @@ int main() {
                 for (i = 0; i < count; i++) {
                     if (inventory[i].id == src) {
                         found = 1;
-                        printf("%d\t\t%s\t%d\t\t%.2f\n", inventory[i].id, inventory[i].name, inventory[i].quantity, inventory[i].price);
+                        printf("%d\t%s\t%d\t\t%.2f\n", inventory[i].id, inventory[i].name, inventory[i].quantity, inventory[i].price);
                         break;
                     }
                 }
